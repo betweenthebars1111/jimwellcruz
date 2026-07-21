@@ -1,0 +1,26 @@
+{
+  "sections": [
+    {
+      "name": "machine",
+      "items": [
+        { "name": "HP Notebook", "note": "240 G8, 11th Gen Intel© Core™ i7, 8GB RAM" }
+      ]
+    },
+    {
+      "name": "peripherals",
+      "items": [
+        { "name": "Attack Shark", "note": "X11 SE" },
+        { "name": "Soundcore", "note": "Space Q45" }
+      ]
+    },
+    {
+      "name": "os & software",
+      "items": [
+        { "name": "Linux", "note": "distro and desktop environment" },
+        { "name": "Editor", "note": "VS Code" },
+        { "name": "Terminal", "note": "Linux Terminal and Windows PowerShell" },
+        { "name": "Brave Browser", "note": "My daily driver" }
+      ]
+    }
+  ]
+}

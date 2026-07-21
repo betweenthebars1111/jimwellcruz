@@ -1,0 +1,68 @@
+[
+  {
+    "slug": "cisco-it-customer-support-basics",
+    "title": "IT Customer Support Basics",
+    "issuer": "Cisco Networking Academy",
+    "date": "2026",
+    "credentialId": "",
+    "url": "https://www.credly.com/badges/f1e9a1be-9a3d-46e5-9140-7fd3dd24915e",
+    "tags": [
+      "IT Support"
+    ],
+    "summary": "Fundamentals of IT customer support: troubleshooting workflows, communication, and service best practices.",
+    "body": [
+      "Covers the core skills of front-line IT support — diagnosing common hardware and software issues, walking users through fixes, and communicating clearly under pressure. Earned through the Cisco Networking Academy in 2026."
+    ],
+    "logo": "/images/certs/cisco-networking-academy.png"
+  },
+  {
+    "slug": "cisco-security-and-connectivity-support",
+    "title": "Security and Connectivity Support",
+    "issuer": "Cisco Networking Academy",
+    "date": "2026",
+    "credentialId": "",
+    "url": "https://www.credly.com/badges/91eac702-3dac-4afd-9e58-5f55f05e5555",
+    "tags": [
+      "Security",
+      "Networking"
+    ],
+    "summary": "Supporting secure network connectivity: network fundamentals, security basics, and connectivity troubleshooting.",
+    "body": [
+      "Focuses on keeping users securely connected — network fundamentals, common security threats and mitigations, and systematic troubleshooting of connectivity problems. Earned through the Cisco Networking Academy in 2026."
+    ],
+    "logo": "/images/certs/cisco-networking-academy.png"
+  },
+  {
+    "slug": "cisco-introduction-to-modern-ai",
+    "title": "Introduction to Modern AI",
+    "issuer": "Cisco Networking Academy",
+    "date": "2026",
+    "credentialId": "",
+    "url": "https://www.credly.com/badges/7577ed31-c9ca-4913-85a1-8bb7f30754e8",
+    "tags": [
+      "AI"
+    ],
+    "summary": "Foundations of modern artificial intelligence: core concepts, applications, and responsible use.",
+    "body": [
+      "An introduction to how modern AI systems work and where they are applied — machine learning concepts, practical use cases, and responsible AI considerations. Earned through the Cisco Networking Academy in 2026."
+    ],
+    "logo": "/images/certs/cisco-networking-academy.png"
+  },
+  {
+    "slug": "cisco-creating-compelling-reports",
+    "title": "Creating Compelling Reports",
+    "issuer": "Cisco Networking Academy",
+    "date": "2026",
+    "credentialId": "",
+    "url": "https://www.credly.com/badges/fa9ded25-9087-481b-b773-b46e3f4cb366",
+    "tags": [
+      "Data Analysis",
+      "Reporting"
+    ],
+    "summary": "Creating effective reports: data visualization, storytelling, and actionable insights.",
+    "body": [
+      "Teaches how to turn data into clear, compelling reports — visualizing data effectively, crafting narratives around insights, and presenting findings for decision-making. Earned through the Cisco Networking Academy in 2026."
+    ],
+    "logo": "/images/certs/cisco-networking-academy.png"
+  }
+]

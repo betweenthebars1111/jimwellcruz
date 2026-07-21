@@ -1,0 +1,22 @@
+[
+  {
+    "slug": "ma-conglomo-medcorp",
+    "role": "Full-Stack Engineer",
+    "company": "MA Conglomo MedCorp",
+    "location": "Science City of Muñoz, Nueva Ecija",
+    "start": "Jul 2025",
+    "end": "Nov 2025",
+    "tags": ["PHP", "MySQL", "Bootstrap", "Agile"],
+    "summary": "Led a 5-member team building a web-based inventory and logging system that replaced the company's outdated manual processes.",
+    "body": [
+      "As lead developer, I led a 5-member development team in creating a web-based inventory and logging system for MAConglomo, optimizing business processes that previously ran on outdated systems.",
+      "I designed the system back-end and implemented secure user authentication, admin dashboards, and medicine stock tracking modules using PHP, MySQL, and Bootstrap.",
+      "Throughout the engagement I applied software engineering principles — Agile methodology, version control, and modular system design — and coordinated client feedback sessions and iterative testing to keep deliverables functional and user-centered."
+    ],
+    "highlights": [
+      "Led a 5-member development team as lead developer",
+      "Designed the back-end: secure auth, admin dashboards, medicine stock tracking",
+      "Ran Agile iterations with client feedback sessions and iterative testing"
+    ]
+  }
+]

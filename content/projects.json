@@ -1,0 +1,43 @@
+[
+  {
+    "slug": "clsu-virtual-tour",
+    "title": "CLSU Virtual Tour",
+    "tagline": "Interactive 360° campus virtual exploring system for Central Luzon State University.",
+    "year": "2026",
+    "status": "in progress",
+    "featured": true,
+    "tags": ["PHP", "MySQL", "JavaScript", "Pannellum", "Gemini AI"],
+    "links": [],
+    "summary": "A full-stack web-based interactive virtual tour of Central Luzon State University — my capstone project — with 100+ virtual tours, an AI chatbot, and a secure admin CMS for non-technical staff.",
+    "body": [
+      "The CLSU Virtual Tour is a web-based interactive virtual exploring system that lets anyone walk the Central Luzon State University campus from a browser. Built with PHP, MySQL, and JavaScript on top of Pannellum for the 360° panoramas, it serves more than 100 virtual tours and integrates a Google Gemini AI chatbot to answer visitors' questions about the campus.",
+      "Non-technical staff manage everything through a secure admin CMS. I engineered an optimized file upload system for the panorama imagery and hardened the platform with enterprise-grade security — bcrypt password hashing, CSRF protection, and SQL injection prevention.",
+      "The system is evaluated against the ISO/IEC 25010 software quality framework and holds sub-3-second load times across the tour experience."
+    ],
+    "highlights": [
+      "100+ virtual tours with integrated AI chatbot (Google Gemini)",
+      "Enterprise-grade security: bcrypt, CSRF protection, SQL injection prevention",
+      "Sub-3-second load times, evaluated with the ISO/IEC 25010 framework"
+    ]
+  },
+  {
+    "slug": "maconglomo-hub",
+    "title": "MAConglomo Hub",
+    "tagline": "Pharmaceutical ERP & field sales management system.",
+    "year": "2025",
+    "status": "live",
+    "featured": false,
+    "tags": ["PHP", "MySQL", "HTML", "CSS"],
+    "links": [],
+    "summary": "A centralized ERP solution for MA Conglomo MedCorp that digitized legacy paper-based tracking and gave the company real-time visibility into field sales activity.",
+    "body": [
+      "MAConglomo Hub is a centralized ERP solution built for MA Conglomo MedCorp, a pharmaceutical company that was still running on paper-based tracking. Digitizing those legacy processes reduced manual data-entry errors and put inventory and sales data in one place.",
+      "I engineered the MedRep management features — daily coverage reports and pre/post-call logging — so the company can monitor real-time field activities and client engagement across its sales force."
+    ],
+    "highlights": [
+      "Digitized legacy paper-based tracking, reducing manual data entry errors",
+      "MedRep daily coverage reports with pre/post-call logging",
+      "Real-time monitoring of field activities and client engagement"
+    ]
+  }
+]

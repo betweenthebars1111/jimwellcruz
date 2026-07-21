@@ -1,0 +1,70 @@
+{
+  "categories": [
+    {
+      "name": "Languages",
+      "items": [
+        { "name": "Python" },
+        { "name": "Java" },
+        { "name": "C++" },
+        { "name": "SQL" },
+        { "name": "PHP" },
+        { "name": "JavaScript" },
+        { "name": "HTML" },
+        { "name": "CSS" }
+      ]
+    },
+    {
+      "name": "Frameworks",
+      "items": [
+        { "name": "React" },
+        { "name": "Django" },
+        { "name": "Node.js" },
+        { "name": "PyTorch" },
+        { "name": "Bootstrap" }
+      ]
+    },
+    {
+      "name": "AI & Automation",
+      "items": [
+        { "name": "Claude Code", "note": "AI pair programming, daily driver" },
+        { "name": "LLM API Integration" },
+        { "name": "N8N", "note": "workflow automation" },
+        { "name": "Google Gemini AI" }
+      ]
+    },
+    {
+      "name": "Developer Tools",
+      "items": [
+        { "name": "Git" },
+        { "name": "MySQL" },
+        { "name": "Cisco Packet Tracer" },
+        { "name": "Oracle VirtualBox" }
+      ]
+    },
+    {
+      "name": "Operating Systems",
+      "items": [
+        { "name": "Linux (Mint)", "note": "daily driver" },
+        { "name": "Windows" }
+      ]
+    },
+    {
+      "name": "Practices",
+      "items": [
+        { "name": "Agile/Scrum" },
+        { "name": "Data Analysis", "note": "SQL, Excel" },
+        { "name": "Technical Documentation" },
+        { "name": "AI Automation" }
+      ]
+    },
+    {
+      "name": "This Website",
+      "items": [
+        { "name": "Next.js 15", "note": "App Router, static generation" },
+        { "name": "TypeScript" },
+        { "name": "Tailwind CSS" },
+        { "name": "Geist, Geist Mono & Geist Pixel", "note": "typography" }
+      ]
+    }
+  ]
+}
