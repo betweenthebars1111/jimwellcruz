@@ -95,9 +95,11 @@ the short pull-quote on the homepage card; `body` is an array of full paragraphs
 ## Assets
 
 - `public/images/portrait.png` — hero photo
-- `public/images/ouroboros.png` — logo mark / dividers / 404 (white-on-transparent; auto-inverted in light mode)
-- `public/resume.pdf` — **add this** (linked from hero + footer)
+- `public/images/ouroboros.png` — logo mark / dividers / 404 (white-on-transparent; auto-inverted in light mode). Also the source for the browser-tab favicon (`src/app/icon.png` + `src/app/apple-icon.png`).
+- `public/images/certs/` — certification issuer logos (see "Certification logos" above)
 - `public/fonts/GeistPixel.woff2` — display font (Geist Pixel Square, from vercel/geist-font)
+
+> No resume PDF is shipped on the site by design — the resume points people *to* the site, not the other way around. To re-add one later: drop `resume.pdf` into `public/`, set `"resume": "/resume.pdf"` in `content/profile.json`, and wire a link where you want it.
 
 ## Features
 
@@ -107,4 +109,43 @@ the short pull-quote on the homepage card; `body` is an array of full paragraphs
 
 ## Deploy
 
-Push to GitHub → import the repo on [vercel.com](https://vercel.com) → framework auto-detects Next.js → deploy. No env vars needed.
+First-time setup: push to GitHub → import the repo on [vercel.com](https://vercel.com) → framework auto-detects Next.js → deploy. No env vars needed.
+
+### Updating the live site yourself (no Claude Code needed)
+
+The repo is already connected to Vercel: **every push to `main` triggers an automatic redeploy** (usually live within a minute). So updating the site is just three git commands in this folder:
+
+```bash
+cd /var/www/html/jimwellcruz
+
+# 1. see what you changed (optional sanity check)
+git status
+
+# 2. stage everything and commit with a message
+git add -A
+git commit -m "describe what you changed"
+
+# 3. push — this is what triggers the Vercel redeploy
+git push
+```
+
+That's it. Edit any file in `content/*.json` (or swap an image in `public/`), run those three commands, and Vercel rebuilds and publishes automatically. Watch the build at [vercel.com/dashboard](https://vercel.com/dashboard) → your project → **Deployments**.
+
+**Common edits, all just content files:**
+
+| Want to… | Edit |
+|---|---|
+| Add/edit a certification (with logo) | `content/certifications.json` |
+| Add a project or experience | `content/projects.json` / `content/experience.json` |
+| Change bio, email, socials, location | `content/profile.json` |
+| Add a real recommendation | `content/recommendations.json` |
+| Swap the tab favicon | replace `src/app/icon.png` |
+
+**If a push is rejected** (e.g. "updates were rejected because the remote contains work you do not have"), pull first, then push again:
+
+```bash
+git pull --rebase
+git push
+```
+
+**Auth note:** pushing uses the GitHub login stored by the `gh` CLI on this machine. If git ever asks for a username/password, run `gh auth login` once to refresh it, then push again.
