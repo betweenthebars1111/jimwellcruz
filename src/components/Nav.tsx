@@ -53,15 +53,36 @@ function useCurrentSection() {
     const onScroll = () => {
       if (Date.now() < holdUntil.current) return;
       const doc = document.documentElement;
+      const y = window.scrollY;
+      const maxScroll = Math.max(doc.scrollHeight - window.innerHeight, 0);
       const scanline = Math.min(window.innerHeight * 0.35, 240);
-      let current: string | null = null;
-      if (window.innerHeight + window.scrollY >= doc.scrollHeight - 2) {
-        current = homeSectionIds[homeSectionIds.length - 1];
-      } else {
-        for (const id of homeSectionIds) {
-          const el = document.getElementById(id);
-          if (el && el.getBoundingClientRect().top <= scanline) current = id;
+
+      /* the scrollY at which each section's top would reach the scanline */
+      const activateAt = homeSectionIds.map((id) => {
+        const el = document.getElementById(id);
+        if (!el) return Infinity;
+        return el.getBoundingClientRect().top + y - scanline;
+      });
+
+      /* short trailing sections can't scroll their top up to the scanline
+         before the page bottoms out, so they'd never activate. re-seat those
+         into the final stretch of scroll so each still gets an active zone. */
+      const firstUnreachable = activateAt.findIndex((a) => a > maxScroll);
+      if (firstUnreachable !== -1) {
+        const lastReachable =
+          firstUnreachable > 0 ? activateAt[firstUnreachable - 1] : 0;
+        const bandStart = Math.max(lastReachable, maxScroll - 160);
+        const bandLen = maxScroll - bandStart;
+        const count = homeSectionIds.length - firstUnreachable;
+        for (let i = firstUnreachable; i < homeSectionIds.length; i++) {
+          const step = (i - firstUnreachable + 1) / count;
+          activateAt[i] = bandStart + bandLen * step;
         }
+      }
+
+      let current: string | null = null;
+      for (let i = 0; i < homeSectionIds.length; i++) {
+        if (y >= activateAt[i] - 1) current = homeSectionIds[i];
       }
       setSection(current);
     };
