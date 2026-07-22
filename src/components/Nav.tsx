@@ -8,24 +8,25 @@ import { profile } from "@/lib/content";
 import ThemeToggle from "./ThemeToggle";
 import { MinesweeperButton } from "./Minesweeper";
 
+/* mirrors the homepage section order: 01 projects → 07 github. "stack"
+   links to its full page but still lights up while its homepage section
+   scrolls by (see isActive). */
 const items = [
   { label: "name", href: "/" },
   { label: "projects", href: "/#projects" },
   { label: "experience", href: "/#experience" },
+  { label: "stack", href: "/stack" },
   { label: "certifications", href: "/#certifications" },
   { label: "recommendations", href: "/#recommendations" },
   { label: "affiliations", href: "/#affiliations" },
   { label: "github", href: "/#github" },
-  { label: "stack", href: "/stack" },
   { label: "gear", href: "/gear" },
 ];
 
-/* the homepage "stack" section is intentionally omitted — it has no
-   /#stack nav item, so tracking it would leave the indicator with nothing
-   to point at. experience stays active until certifications scrolls in. */
 const homeSectionIds = [
   "projects",
   "experience",
+  "stack",
   "certifications",
   "recommendations",
   "affiliations",
@@ -105,7 +106,13 @@ function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
         (pathname === "/" && section === id) || pathname.startsWith(`/${id}/`)
       );
     }
-    return pathname === href || pathname.startsWith(`${href}/`);
+    return (
+      pathname === href ||
+      pathname.startsWith(`${href}/`) ||
+      /* page links with a same-named homepage section (e.g. stack) light
+         up while that section scrolls by */
+      (pathname === "/" && section === href.slice(1))
+    );
   };
 
   return (
