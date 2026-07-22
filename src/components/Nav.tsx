@@ -56,6 +56,9 @@ function useCurrentSection() {
       const y = window.scrollY;
       const maxScroll = Math.max(doc.scrollHeight - window.innerHeight, 0);
       const scanline = Math.min(window.innerHeight * 0.35, 240);
+      /* every section is guaranteed at least this much scroll as its active
+         zone, so a single wheel tick can't skip one entirely */
+      const minZone = Math.min(150, maxScroll);
 
       /* the scrollY at which each section's top would reach the scanline */
       const activateAt = homeSectionIds.map((id) => {
@@ -64,25 +67,21 @@ function useCurrentSection() {
         return el.getBoundingClientRect().top + y - scanline;
       });
 
-      /* short trailing sections can't scroll their top up to the scanline
-         before the page bottoms out, so they'd never activate. re-seat those
-         into the final stretch of scroll so each still gets an active zone. */
-      const firstUnreachable = activateAt.findIndex((a) => a > maxScroll);
-      if (firstUnreachable !== -1) {
-        const lastReachable =
-          firstUnreachable > 0 ? activateAt[firstUnreachable - 1] : 0;
-        const bandStart = Math.max(lastReachable, maxScroll - 160);
-        const bandLen = maxScroll - bandStart;
-        const count = homeSectionIds.length - firstUnreachable;
-        for (let i = firstUnreachable; i < homeSectionIds.length; i++) {
-          const step = (i - firstUnreachable + 1) / count;
-          activateAt[i] = bandStart + bandLen * step;
-        }
+      /* the last viewport-worth of content can't be scrolled past a fixed
+         top scanline, so short trailing sections (e.g. affiliations + github)
+         would never activate and get skipped. Walk back from the last section,
+         pulling any section's activation earlier until it clears the bottom
+         and every section holds at least minZone of scroll. Roomy sections
+         keep their natural zone; only the crammed tail is redistributed. */
+      const last = activateAt.length - 1;
+      activateAt[last] = Math.min(activateAt[last], maxScroll - minZone);
+      for (let i = last - 1; i >= 0; i--) {
+        activateAt[i] = Math.min(activateAt[i], activateAt[i + 1] - minZone);
       }
 
       let current: string | null = null;
       for (let i = 0; i < homeSectionIds.length; i++) {
-        if (y >= activateAt[i] - 1) current = homeSectionIds[i];
+        if (y >= activateAt[i]) current = homeSectionIds[i];
       }
       setSection(current);
     };
