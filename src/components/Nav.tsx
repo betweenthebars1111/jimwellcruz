@@ -15,6 +15,7 @@ const items = [
   { label: "certifications", href: "/#certifications" },
   { label: "recommendations", href: "/#recommendations" },
   { label: "affiliations", href: "/#affiliations" },
+  { label: "github", href: "/#github" },
   { label: "stack", href: "/stack" },
   { label: "gear", href: "/gear" },
 ];
@@ -28,6 +29,7 @@ const homeSectionIds = [
   "certifications",
   "recommendations",
   "affiliations",
+  "github",
 ];
 
 /* on the homepage, track which section is currently in view */

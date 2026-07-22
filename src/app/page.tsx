@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import GetInTouch from "@/components/GetInTouch";
+import GitHubContributions from "@/components/GitHubContributions";
 import {
   profile,
   projects,
@@ -303,6 +304,16 @@ export default function Home() {
             </Link>
           ))}
         </div>
+      </section>
+
+      {/* 07 — github */}
+      <section
+        id="github"
+        className="reveal mt-14 scroll-mt-20"
+        style={delay(7)}
+      >
+        <SectionHeader n="07" title="github" />
+        <GitHubContributions />
       </section>
     </>
   );
