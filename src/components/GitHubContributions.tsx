@@ -2,13 +2,12 @@ import { profile } from "@/lib/content";
 
 interface Day {
   date: string;
-  count: number;
   level: 0 | 1 | 2 | 3 | 4;
 }
 
-interface ContributionsResponse {
-  total: Record<string, number>;
-  contributions: Day[];
+interface Contributions {
+  total: number;
+  days: Day[];
 }
 
 /* halftone ramp — dots grow (and firm up) with activity, empties stay faint */
@@ -29,16 +28,40 @@ export function githubUsername(): string | null {
   return m ? m[1] : null;
 }
 
+/* read GitHub's own public contribution graph — no third-party cache in the
+   way, so the count tracks whatever github.com shows (private contributions
+   included, once the profile setting is on) */
 async function fetchContributions(
   user: string,
-): Promise<ContributionsResponse | null> {
+): Promise<Contributions | null> {
   try {
     const res = await fetch(
-      `https://github-contributions-api.jogruber.de/v4/${user}?y=last`,
-      { next: { revalidate: 43200 } }, // refresh at most twice a day
+      `https://github.com/users/${user}/contributions`,
+      {
+        headers: { "User-Agent": "Mozilla/5.0 (jimwellcruz-portfolio)" },
+        next: { revalidate: 43200 }, // refresh at most twice a day
+      },
     );
     if (!res.ok) return null;
-    return (await res.json()) as ContributionsResponse;
+    const html = await res.text();
+
+    const days: Day[] = [];
+    const cell = /data-date="(\d{4}-\d{2}-\d{2})"[^>]*?data-level="(\d)"/g;
+    for (const m of html.matchAll(cell)) {
+      days.push({ date: m[1], level: Number(m[2]) as Day["level"] });
+    }
+    if (days.length === 0) return null;
+    days.sort((a, b) => a.date.localeCompare(b.date));
+
+    // the headline total is the sum of every day's tooltip count
+    let total = 0;
+    const tip = /<tool-tip[^>]*>([^<]*)<\/tool-tip>/g;
+    for (const m of html.matchAll(tip)) {
+      const n = m[1].match(/^([\d,]+)\s+contribution/);
+      if (n) total += Number(n[1].replace(/,/g, ""));
+    }
+
+    return { total, days };
   } catch {
     return null;
   }
@@ -57,8 +80,8 @@ function toWeeks(days: Day[]): (Day | null)[][] {
 export default async function GitHubContributions() {
   const user = githubUsername();
   const data = user ? await fetchContributions(user) : null;
-  const weeks = data ? toWeeks(data.contributions) : [];
-  const total = data?.total?.lastYear ?? null;
+  const weeks = data ? toWeeks(data.days) : [];
+  const total = data?.total ?? null;
   const profileUrl = user ? `https://github.com/${user}` : "#";
 
   if (weeks.length === 0) {
@@ -96,7 +119,7 @@ export default async function GitHubContributions() {
                   r={DOT[day.level].r}
                   style={{ fill: `rgb(var(--c-ink) / ${DOT[day.level].o})` }}
                 >
-                  <title>{`${day.count} on ${day.date}`}</title>
+                  <title>{day.date}</title>
                 </circle>
               ),
           ),
