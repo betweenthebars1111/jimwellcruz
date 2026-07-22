@@ -13,13 +13,14 @@ interface ContributionsResponse {
 
 /* halftone ramp — dots grow (and firm up) with activity, empties stay faint */
 const DOT = [
-  { d: 3, o: 0.2 },
-  { d: 5, o: 0.5 },
-  { d: 7, o: 0.72 },
-  { d: 9, o: 0.9 },
-  { d: 11, o: 1 },
+  { r: 1.5, o: 0.2 },
+  { r: 2.5, o: 0.5 },
+  { r: 3.5, o: 0.72 },
+  { r: 4.5, o: 0.9 },
+  { r: 5.5, o: 1 },
 ];
-const CELL = 11;
+/* svg grid pitch — the viewBox scales to the column, so no horizontal scroll */
+const PITCH = 14;
 
 export function githubUsername(): string | null {
   const gh = profile.socials.find((s) => s.label.toLowerCase() === "github");
@@ -78,33 +79,29 @@ export default async function GitHubContributions() {
 
   return (
     <div className="mt-7">
-      <div className="overflow-x-auto pb-1">
-        <div className="flex gap-[3px]" aria-hidden="true">
-          {weeks.map((week, wi) => (
-            <div key={wi} className="flex flex-col gap-[3px]">
-              {week.map((day, di) => (
-                <div
-                  key={day ? day.date : `e${di}`}
-                  className="flex items-center justify-center"
-                  style={{ width: CELL, height: CELL }}
-                  title={day ? `${day.count} on ${day.date}` : undefined}
+      <svg
+        viewBox={`0 0 ${weeks.length * PITCH} ${7 * PITCH}`}
+        className="block w-full"
+        role="img"
+        aria-label="github contribution graph"
+      >
+        {weeks.map((week, wi) =>
+          week.map(
+            (day, di) =>
+              day && (
+                <circle
+                  key={day.date}
+                  cx={wi * PITCH + PITCH / 2}
+                  cy={di * PITCH + PITCH / 2}
+                  r={DOT[day.level].r}
+                  style={{ fill: `rgb(var(--c-ink) / ${DOT[day.level].o})` }}
                 >
-                  {day && (
-                    <span
-                      className="block rounded-full"
-                      style={{
-                        width: DOT[day.level].d,
-                        height: DOT[day.level].d,
-                        backgroundColor: `rgb(var(--c-ink) / ${DOT[day.level].o})`,
-                      }}
-                    />
-                  )}
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
+                  <title>{`${day.count} on ${day.date}`}</title>
+                </circle>
+              ),
+          ),
+        )}
+      </svg>
 
       {total !== null && (
         <p className="micro mt-5">
