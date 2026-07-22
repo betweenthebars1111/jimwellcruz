@@ -11,16 +11,17 @@ interface ContributionsResponse {
   contributions: Day[];
 }
 
-/* monochrome ink ramp — empties are barely-there, hot days are full ink */
-const LEVEL_FILL = [
-  "rgb(var(--c-ink) / 0.06)",
-  "rgb(var(--c-ink) / 0.28)",
-  "rgb(var(--c-ink) / 0.5)",
-  "rgb(var(--c-ink) / 0.74)",
-  "rgb(var(--c-ink) / 1)",
+/* halftone ramp — dots grow (and firm up) with activity, empties stay faint */
+const DOT = [
+  { d: 3, o: 0.2 },
+  { d: 5, o: 0.5 },
+  { d: 7, o: 0.72 },
+  { d: 9, o: 0.9 },
+  { d: 11, o: 1 },
 ];
+const CELL = 11;
 
-function githubUsername(): string | null {
+export function githubUsername(): string | null {
   const gh = profile.socials.find((s) => s.label.toLowerCase() === "github");
   if (!gh) return null;
   const m = gh.url.match(/github\.com\/([^/?#]+)/i);
@@ -59,85 +60,60 @@ export default async function GitHubContributions() {
   const total = data?.total?.lastYear ?? null;
   const profileUrl = user ? `https://github.com/${user}` : "#";
 
-  return (
-    <div className="mt-6">
-      {weeks.length > 0 ? (
-        <div className="rounded-xl border border-gray-200 bg-gray-50 p-5 shadow-card">
-          <div className="flex items-baseline justify-between gap-4">
-            <p className="text-[13px] text-gray-500">
-              {total !== null ? (
-                <>
-                  <span className="font-medium text-ink">{total}</span>{" "}
-                  contributions in the last year
-                </>
-              ) : (
-                "contributions in the last year"
-              )}
-            </p>
-            <a
-              href={profileUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="micro link shrink-0 text-gray-500"
-            >
-              @{user} ↗
-            </a>
-          </div>
+  if (weeks.length === 0) {
+    return (
+      <p className="mt-6 text-[13px] text-gray-500">
+        my contribution graph is taking a nap.{" "}
+        <a
+          href={profileUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link text-ink"
+        >
+          see it on github ↗
+        </a>
+      </p>
+    );
+  }
 
-          <div className="mt-4 overflow-x-auto pb-1">
-            <div className="flex gap-[3px]">
-              {weeks.map((week, wi) => (
-                <div key={wi} className="flex flex-col gap-[3px]">
-                  {week.map((day, di) =>
-                    day ? (
-                      <div
-                        key={day.date}
-                        title={`${day.count} on ${day.date}`}
-                        className="h-[11px] w-[11px] rounded-[2px]"
-                        style={{ backgroundColor: LEVEL_FILL[day.level] }}
-                      />
-                    ) : (
-                      <div key={`e${di}`} className="h-[11px] w-[11px]" />
-                    ),
+  return (
+    <div className="mt-7">
+      <div className="overflow-x-auto pb-1">
+        <div className="flex gap-[3px]" aria-hidden="true">
+          {weeks.map((week, wi) => (
+            <div key={wi} className="flex flex-col gap-[3px]">
+              {week.map((day, di) => (
+                <div
+                  key={day ? day.date : `e${di}`}
+                  className="flex items-center justify-center"
+                  style={{ width: CELL, height: CELL }}
+                  title={day ? `${day.count} on ${day.date}` : undefined}
+                >
+                  {day && (
+                    <span
+                      className="block rounded-full"
+                      style={{
+                        width: DOT[day.level].d,
+                        height: DOT[day.level].d,
+                        backgroundColor: `rgb(var(--c-ink) / ${DOT[day.level].o})`,
+                      }}
+                    />
                   )}
                 </div>
               ))}
             </div>
-          </div>
+          ))}
+        </div>
+      </div>
 
-          <div className="mt-3 flex items-center justify-end gap-1.5">
-            <span className="micro mr-1">less</span>
-            {LEVEL_FILL.map((fill, i) => (
-              <div
-                key={i}
-                className="h-[11px] w-[11px] rounded-[2px]"
-                style={{ backgroundColor: fill }}
-              />
-            ))}
-            <span className="micro ml-1">more</span>
-          </div>
-        </div>
-      ) : (
-        /* graceful fallback if the API is unreachable at build time */
-        <div className="rounded-xl border border-dashed border-gray-300 bg-gray-50/50 p-6 text-center">
-          <p className="text-[13px] text-gray-500">
-            my contribution graph is taking a nap.{" "}
-            <a
-              href={profileUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link text-ink"
-            >
-              see it on github ↗
-            </a>
-          </p>
-        </div>
+      {total !== null && (
+        <p className="micro mt-5">
+          {total.toLocaleString()} contributions in the last year
+        </p>
       )}
 
-      <p className="mt-4 max-w-measure font-serif text-[15px] italic leading-relaxed text-gray-500">
-        i&apos;m sorry — i promise i&apos;m not lazy, just lazy with pushing.
-        (this graph is emphatically <span className="text-ink">not</span> a
-        measure of how good i actually am. :)
+      <p className="mt-2 text-[13px] italic text-gray-500">
+        i&apos;m sorry — i promise i&apos;m not lazy, just lazy with pushing. :)
       </p>
     </div>
   );

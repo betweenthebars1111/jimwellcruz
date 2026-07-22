@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import GetInTouch from "@/components/GetInTouch";
-import GitHubContributions from "@/components/GitHubContributions";
+import GitHubContributions, {
+  githubUsername,
+} from "@/components/GitHubContributions";
 import {
   profile,
   projects,
@@ -21,22 +23,34 @@ function SectionHeader({
   title,
   href,
   hrefLabel,
+  external,
 }: {
   n: string;
   title: string;
   href?: string;
   hrefLabel?: string;
+  external?: boolean;
 }) {
   return (
     <div className="flex items-baseline justify-between border-b border-gray-200 pb-3">
       <h2 className="font-pixel text-sm lowercase tracking-wide text-gray-400">
         {n} — {title}
       </h2>
-      {href && (
-        <Link href={href} className="micro link">
-          {hrefLabel ?? "view all"}
-        </Link>
-      )}
+      {href &&
+        (external ? (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="micro link"
+          >
+            {hrefLabel ?? "view all"}
+          </a>
+        ) : (
+          <Link href={href} className="micro link">
+            {hrefLabel ?? "view all"}
+          </Link>
+        ))}
     </div>
   );
 }
@@ -312,7 +326,13 @@ export default function Home() {
         className="reveal mt-14 scroll-mt-20"
         style={delay(7)}
       >
-        <SectionHeader n="07" title="github" />
+        <SectionHeader
+          n="07"
+          title="github"
+          href={`https://github.com/${githubUsername()}`}
+          hrefLabel={`@${githubUsername()} ↗`}
+          external
+        />
         <GitHubContributions />
       </section>
     </>
