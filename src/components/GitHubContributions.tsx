@@ -133,7 +133,7 @@ export default async function GitHubContributions() {
       )}
 
       <p className="mt-2 text-[13px] italic text-gray-500">
-        i&apos;m sorry — i promise i&apos;m not lazy, just lazy with pushing. :)
+        i promise i&apos;m not lazy, just lazy with pushing. :)
       </p>
     </div>
   );
