@@ -132,31 +132,52 @@ export default function Home() {
       <section id="projects" className="reveal scroll-mt-20" style={delay(1)}>
         <SectionHeader n="01" title="projects" />
         <div className="mt-6 grid gap-3 sm:grid-cols-2">
-          {projects.map((p) => (
-            <Link
-              key={p.slug}
-              href={`/projects/${p.slug}`}
-              className="group block rounded-xl border border-gray-200 bg-gray-50 p-5 shadow-card transition-[transform,box-shadow] duration-300 ease-out-expo hover:-translate-y-0.5 hover:shadow-card-hover"
-            >
-              <div className="flex items-center justify-between">
-                <span className="micro">{p.year}</span>
-                {p.featured ? (
-                  <span className="rounded-full bg-ink px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.1em] text-bg">
-                    featured
-                  </span>
-                ) : (
-                  <span className="micro">{p.status}</span>
+          {projects.map((p) => {
+            /* the card body is the link; repo links sit above it, so the card
+               is a div rather than a nested-anchor Link */
+            const repo = p.links.find((l) => l.label === "github");
+            return (
+              <div
+                key={p.slug}
+                className="group relative flex flex-col rounded-xl border border-gray-200 bg-gray-50 p-5 shadow-card transition-[transform,box-shadow] duration-300 ease-out-expo hover:-translate-y-0.5 hover:shadow-card-hover"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="micro">{p.year}</span>
+                  {p.featured ? (
+                    <span className="rounded-full bg-ink px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.1em] text-bg">
+                      featured
+                    </span>
+                  ) : (
+                    <span className="micro">{p.status}</span>
+                  )}
+                </div>
+                <h3 className="mt-3 font-medium">
+                  <Link
+                    href={`/projects/${p.slug}`}
+                    className="after:absolute after:inset-0 after:rounded-xl"
+                  >
+                    {p.title}
+                  </Link>
+                </h3>
+                <p className="mt-1 text-[13px] text-gray-500">{p.tagline}</p>
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {p.tags.map((t) => (
+                    <Pill key={t}>{t}</Pill>
+                  ))}
+                </div>
+                {repo && (
+                  <a
+                    href={repo.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="micro link relative z-10 mt-auto self-start pt-4 text-gray-500"
+                  >
+                    github ↗
+                  </a>
                 )}
               </div>
-              <h3 className="mt-3 font-medium">{p.title}</h3>
-              <p className="mt-1 text-[13px] text-gray-500">{p.tagline}</p>
-              <div className="mt-4 flex flex-wrap gap-1.5">
-                {p.tags.map((t) => (
-                  <Pill key={t}>{t}</Pill>
-                ))}
-              </div>
-            </Link>
-          ))}
+            );
+          })}
         </div>
       </section>
 
@@ -185,7 +206,7 @@ export default function Home() {
                 <p className="mt-1 text-[13px] text-gray-500">{e.summary}</p>
               </div>
               <span className="micro shrink-0">
-                {e.start}—{e.end}
+                {e.start} — {e.end}
               </span>
             </Link>
           ))}
@@ -300,20 +321,32 @@ export default function Home() {
             <Link
               key={a.slug}
               href={`/affiliations/${a.slug}`}
-              className="group flex items-baseline justify-between gap-4 py-4"
+              className="group flex items-center justify-between gap-4 py-4"
             >
-              <div className="min-w-0">
-                <h3 className="font-medium">
-                  {a.org}
-                  <span className="text-gray-500"> · {a.role}</span>
-                  <span className="ml-2 inline-block text-gray-400 opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100">
-                    →
-                  </span>
-                </h3>
-                <p className="mt-1 text-[13px] text-gray-500">{a.summary}</p>
+              <div className="flex min-w-0 items-center gap-3">
+                {a.logo && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={a.logo}
+                    alt={`${a.org} logo`}
+                    className={`h-7 w-7 shrink-0 object-contain ${
+                      a.logoInvert ? "logo-invert" : ""
+                    }`}
+                  />
+                )}
+                <div className="min-w-0">
+                  <h3 className="font-medium">
+                    {a.org}
+                    <span className="text-gray-500"> · {a.role}</span>
+                    <span className="ml-2 inline-block text-gray-400 opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100">
+                      →
+                    </span>
+                  </h3>
+                  <p className="mt-1 text-[13px] text-gray-500">{a.summary}</p>
+                </div>
               </div>
               <span className="micro shrink-0">
-                {a.start}—{a.end}
+                {a.start} — {a.end}
               </span>
             </Link>
           ))}

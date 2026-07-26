@@ -7,7 +7,12 @@
     "status": "in progress",
     "featured": true,
     "tags": ["PHP", "MySQL", "JavaScript", "Pannellum", "Gemini AI"],
-    "links": [],
+    "links": [
+      {
+        "label": "github",
+        "url": "https://github.com/betweenthebars1111/clsuvirtualtour-portfolio"
+      }
+    ],
     "summary": "A full-stack web-based interactive virtual tour of Central Luzon State University — my capstone project — with 100+ virtual tours, an AI chatbot, and a secure admin CMS for non-technical staff.",
     "body": [
       "The CLSU Virtual Tour is a web-based interactive virtual exploring system that lets anyone walk the Central Luzon State University campus from a browser. Built with PHP, MySQL, and JavaScript on top of Pannellum for the 360° panoramas, it serves more than 100 virtual tours and integrates a Google Gemini AI chatbot to answer visitors' questions about the campus.",
@@ -21,23 +26,53 @@
     ]
   },
   {
-    "slug": "maconglomo-hub",
-    "title": "MAConglomo Hub",
-    "tagline": "Pharmaceutical ERP & field sales management system.",
+    "slug": "panoveil",
+    "title": "Panoveil",
+    "tagline": "Free, open-source 360° photo editor that runs entirely in your browser.",
+    "year": "2026",
+    "status": "live",
+    "featured": false,
+    "tags": ["JavaScript", "WebGL", "Canvas", "PWA", "Open Source"],
+    "links": [
+      { "label": "github", "url": "https://github.com/betweenthebars1111/panoveil" },
+      { "label": "live", "url": "https://panoveil.vercel.app" }
+    ],
+    "summary": "A client-side 360° photo editor — blur faces, add shapes and text while actually looking around inside the panorama. No install, no upload, MIT-licensed.",
+    "body": [
+      "Equirectangular images are a pain to edit flat: everything near the poles is stretched, straight lines bend, and a blur that looks fine in a normal editor turns into a smear once the photo is back on a sphere. Panoveil lets you pan around the panorama the way a viewer would, place edits where you actually see them, and writes the flat 2:1 image back out with the projection math handled for you.",
+      "Annotations are never drawn on the warped equirect image. Each object remembers the camera pose it was created under and keeps its geometry on the flat perspective plane of that pose. At export a shader walks every equirect pixel, converts it to a ray, rotates that ray into the stored camera, and samples the flat annotation — so pole distortion and the 180° seam wrap-around fall out for free.",
+      "It ships as a static site with no build step and runs entirely client-side, so photos never leave the tab. It grew out of the privacy-blur tool inside my CLSU Virtual Tour capstone, where blurring faces in 360° panoramas by hand got old fast."
+    ],
+    "highlights": [
+      "WebGL 360° viewer with blur/pixelate, shapes, arrows, freehand, and text labels",
+      "Projection-correct export that keeps GPano metadata so the JPG stays a panorama",
+      "Fully client-side, offline-capable PWA with light/dark themes — MIT licensed"
+    ]
+  },
+  {
+    "slug": "medihub",
+    "title": "Medihub",
+    "tagline": "Internal management system for a medical distribution company.",
     "year": "2025",
     "status": "live",
     "featured": false,
-    "tags": ["PHP", "MySQL", "HTML", "CSS"],
-    "links": [],
-    "summary": "A centralized ERP solution for MA Conglomo MedCorp that digitized legacy paper-based tracking and gave the company real-time visibility into field sales activity.",
+    "tags": ["PHP", "MySQL", "Bootstrap", "dompdf"],
+    "links": [
+      {
+        "label": "github",
+        "url": "https://github.com/betweenthebars1111/medihub-portfolio"
+      }
+    ],
+    "summary": "A role-aware back-office system covering both halves of a medical distribution business: batch-level drug inventory with an auditable stock ledger, and field logging for medical representatives.",
     "body": [
-      "MAConglomo Hub is a centralized ERP solution built for MA Conglomo MedCorp, a pharmaceutical company that was still running on paper-based tracking. Digitizing those legacy processes reduced manual data-entry errors and put inventory and sales data in one place.",
-      "I engineered the MedRep management features — daily coverage reports and pre/post-call logging — so the company can monitor real-time field activities and client engagement across its sales force."
+      "Medihub replaces spreadsheet-and-paper workflows with one role-aware web app covering what is in the warehouse and what the field team is doing. Digitizing those legacy processes cut manual data-entry errors and put inventory and sales activity in one place.",
+      "Medicines are tracked down to the individual batch — batch number, expiry date, unit cost — and every movement of stock is recorded as an immutable ledger entry rather than a mutable counter, so stock cards stay auditable. Three roles (admin, inventory keeper, and medical rep) each get a distinct dashboard behind a server-enforced permission boundary.",
+      "I engineered the MedRep side — daily coverage reports and pre/post-call logging with photo proof — so the company can monitor real-time field activity and client engagement across its sales force, with PDF exports for the records."
     ],
     "highlights": [
-      "Digitized legacy paper-based tracking, reducing manual data entry errors",
-      "MedRep daily coverage reports with pre/post-call logging",
-      "Real-time monitoring of field activities and client engagement"
+      "Batch-level inventory with an immutable, auditable stock ledger",
+      "MedRep daily coverage reports with pre/post-call logging and photo proof",
+      "Three roles with server-enforced permission boundaries and a full audit trail"
     ]
   }
 ]

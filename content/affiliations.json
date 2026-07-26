@@ -1,11 +1,26 @@
 [
   {
+    "slug": "bits-finance-resource-management-committee",
+    "org": "Builders of Information Technology Society",
+    "role": "Finance & Resource Management Committee Member",
+    "start": "Jul 2026",
+    "end": "present",
+    "url": "https://www.facebook.com/BITS.org/",
+    "logo": "/images/orgs/bits.png",
+    "summary": "Assists in budgeting, fundraising, inventory management, and ensuring the proper use of the organization's resources.",
+    "body": [
+      "As a member of the Finance & Resource Management Committee, I assist in budgeting, fundraising, inventory management, and ensuring the proper use of the organization's resources.",
+      "The role sits alongside the same organization I served as Project Manager — where I once scoped and scheduled the projects, I now help make sure they are funded, supplied, and accounted for."
+    ]
+  },
+  {
     "slug": "builders-of-information-technology-society",
     "org": "Builders of Information Technology Society",
     "role": "Project Manager",
     "start": "Apr 2025",
     "end": "Apr 2026",
     "url": "https://www.facebook.com/BITS.org/",
+    "logo": "/images/orgs/bits.png",
     "summary": "Student executive organizing IT events, workshops, booths, and tech competitions at CLSU.",
     "body": [
       "As Project Manager, I collaborated with a team of fellow student executives in organizing IT-related events, booths, workshops, and tech competitions for the college.",
@@ -19,6 +34,8 @@
     "start": "2023",
     "end": "present",
     "url": "https://clsu.edu.ph",
+    "logo": "/images/orgs/clsu.png",
+    "logoInvert": true,
     "summary": "BSIT major in Systems Development — GWA 1.51, University Scholar, expected April 2027.",
     "body": [
       "I'm pursuing a Bachelor of Science in Information Technology, major in Systems Development, at Central Luzon State University in the Science City of Muñoz, Nueva Ecija — expected to graduate April 2027 with a GWA of 1.51.",

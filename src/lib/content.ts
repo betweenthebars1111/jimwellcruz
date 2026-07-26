@@ -90,6 +90,10 @@ export interface Affiliation {
   url: string;
   summary: string;
   body: string[];
+  /** Optional org logo. Paste an image path from /public (e.g. "/images/orgs/bits.png") or a full URL. Leave out to show no logo. */
+  logo?: string;
+  /** Set when the logo artwork is white-on-transparent, so it gets inverted on the light theme. */
+  logoInvert?: boolean;
 }
 
 export interface StackItem {

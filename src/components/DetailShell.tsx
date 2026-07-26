@@ -12,6 +12,7 @@ export default function DetailShell({
   kicker,
   title,
   logo,
+  logoClassName,
   meta,
   tags,
   links,
@@ -24,6 +25,7 @@ export default function DetailShell({
   kicker: string;
   title: string;
   logo?: string;
+  logoClassName?: string;
   meta?: MetaRow[];
   tags?: string[];
   links?: ItemLink[];
@@ -46,7 +48,7 @@ export default function DetailShell({
         <img
           src={logo}
           alt=""
-          className="mt-6 h-10 w-auto max-w-[120px] object-contain"
+          className={`mt-6 h-10 w-auto max-w-[120px] object-contain ${logoClassName ?? ""}`}
         />
       )}
 

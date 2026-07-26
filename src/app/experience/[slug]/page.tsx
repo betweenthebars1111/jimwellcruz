@@ -33,12 +33,12 @@ export default async function ExperiencePage({
     <DetailShell
       backHref="/#experience"
       backLabel="experience"
-      kicker={`experience — ${e.start}—${e.end}`}
+      kicker={`experience — ${e.start} — ${e.end}`}
       title={e.role.toLowerCase()}
       meta={[
         { label: "company", value: e.company },
         { label: "location", value: e.location },
-        { label: "period", value: `${e.start}—${e.end}` },
+        { label: "period", value: `${e.start} — ${e.end}` },
       ]}
       tags={e.tags}
       body={e.body}

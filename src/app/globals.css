@@ -125,6 +125,14 @@ body {
   filter: none;
 }
 
+/* same deal for white-on-transparent logo artwork (e.g. the CLSU seal) */
+.logo-invert {
+  filter: invert(1);
+}
+.dark .logo-invert {
+  filter: none;
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;

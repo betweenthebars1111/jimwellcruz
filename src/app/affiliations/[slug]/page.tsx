@@ -29,11 +29,13 @@ export default async function AffiliationPage({
     <DetailShell
       backHref="/#affiliations"
       backLabel="affiliations"
-      kicker={`affiliation — ${a.start}—${a.end}`}
+      kicker={`affiliation — ${a.start} — ${a.end}`}
       title={a.org.toLowerCase()}
+      logo={a.logo}
+      logoClassName={a.logoInvert ? "logo-invert" : undefined}
       meta={[
         { label: "role", value: a.role },
-        { label: "period", value: `${a.start}—${a.end}` },
+        { label: "period", value: `${a.start} — ${a.end}` },
       ]}
       links={a.url ? [{ label: "website", url: a.url }] : []}
       body={a.body}
