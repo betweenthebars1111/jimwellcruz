@@ -1,10 +1,30 @@
 [
   {
+    "slug": "aws-academy-cloud-foundations",
+    "title": "AWS Academy Graduate - Cloud Foundations",
+    "issuer": "Amazon Web Services Training and Certification",
+    "date": "2026",
+    "credentialId": "9d0c0632-eac1-4e9f-8f46-1cd7d4eb7c5c",
+    "url": "https://www.credly.com/badges/9d0c0632-eac1-4e9f-8f46-1cd7d4eb7c5c/public_url",
+    "tags": [
+      "AWS Architecture",
+      "AWS Cloud",
+      "AWS Core Services",
+      "AWS Pricing",
+      "AWS Support"
+    ],
+    "summary": "Foundations of AWS Cloud: core services, architecture principles, pricing, and support models.",
+    "body": [
+      "Covers the fundamentals of cloud computing on AWS — core services, basic architecture and security principles, pricing and billing models, and the AWS support ecosystem. Earned through the AWS Academy in 2026."
+    ],
+    "logo": "/images/certs/aws.png"
+  },
+  {
     "slug": "cisco-it-customer-support-basics",
     "title": "IT Customer Support Basics",
     "issuer": "Cisco Networking Academy",
     "date": "2026",
-    "credentialId": "",
+    "credentialId": "f1e9a1be-9a3d-46e5-9140-7fd3dd24915e",
     "url": "https://www.credly.com/badges/f1e9a1be-9a3d-46e5-9140-7fd3dd24915e",
     "tags": [
       "IT Support"
@@ -20,7 +40,7 @@
     "title": "Security and Connectivity Support",
     "issuer": "Cisco Networking Academy",
     "date": "2026",
-    "credentialId": "",
+    "credentialId": "91eac702-3dac-4afd-9e58-5f55f05e5555",
     "url": "https://www.credly.com/badges/91eac702-3dac-4afd-9e58-5f55f05e5555",
     "tags": [
       "Security",
@@ -37,7 +57,7 @@
     "title": "Introduction to Modern AI",
     "issuer": "Cisco Networking Academy",
     "date": "2026",
-    "credentialId": "",
+    "credentialId": "7577ed31-c9ca-4913-85a1-8bb7f30754e8",
     "url": "https://www.credly.com/badges/7577ed31-c9ca-4913-85a1-8bb7f30754e8",
     "tags": [
       "AI"
@@ -53,7 +73,7 @@
     "title": "Creating Compelling Reports",
     "issuer": "Cisco Networking Academy",
     "date": "2026",
-    "credentialId": "",
+    "credentialId": "fa9ded25-9087-481b-b773-b46e3f4cb366",
     "url": "https://www.credly.com/badges/fa9ded25-9087-481b-b773-b46e3f4cb366",
     "tags": [
       "Data Analysis",
