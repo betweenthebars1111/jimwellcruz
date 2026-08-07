@@ -4,7 +4,7 @@
     "title": "CLSU Virtual Tour",
     "tagline": "Interactive 360° campus virtual exploring system for Central Luzon State University.",
     "year": "2026",
-    "status": "in progress",
+    "status": "live",
     "featured": true,
     "tags": ["PHP", "MySQL", "JavaScript", "Pannellum", "Gemini AI"],
     "links": [
