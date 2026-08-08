@@ -4,17 +4,15 @@
       "name": "Languages",
       "items": [
         { "name": "Python" },
-        { "name": "Java" },
         { "name": "C++" },
         { "name": "SQL" },
-        { "name": "PHP" },
         { "name": "JavaScript" },
-        { "name": "HTML" },
-        { "name": "CSS" }
+        { "name": "PHP" },
+        { "name": "HTML/CSS" }
       ]
     },
     {
-      "name": "Frameworks",
+      "name": "Frameworks & Libraries",
       "items": [
         { "name": "React" },
         { "name": "Django" },
@@ -24,21 +22,32 @@
       ]
     },
     {
-      "name": "AI & Automation",
+      "name": "Automation & AI",
       "items": [
-        { "name": "Claude Code", "note": "AI pair programming, daily driver" },
         { "name": "LLM API Integration" },
-        { "name": "N8N", "note": "workflow automation" },
+        { "name": "N8N" },
+        { "name": "AI Automation" },
         { "name": "Google Gemini AI" }
       ]
     },
     {
-      "name": "Developer Tools",
+      "name": "Cloud & DevOps",
       "items": [
-        { "name": "Git" },
+        { "name": "AWS" },
+        { "name": "Docker" },
+        { "name": "Terraform" },
+        { "name": "Ansible" },
+        { "name": "NGINX" }
+      ]
+    },
+    {
+      "name": "Dev Tools",
+      "items": [
+        { "name": "Git/GitHub" },
         { "name": "MySQL" },
         { "name": "Cisco Packet Tracer" },
-        { "name": "Oracle VirtualBox" }
+        { "name": "Oracle VirtualBox" },
+        { "name": "Claude Code" }
       ]
     },
     {
@@ -49,12 +58,11 @@
       ]
     },
     {
-      "name": "Practices",
+      "name": "Additional Skills",
       "items": [
         { "name": "Agile/Scrum" },
-        { "name": "Data Analysis", "note": "SQL, Excel" },
         { "name": "Technical Documentation" },
-        { "name": "AI Automation" }
+        { "name": "Data Analysis", "note": "Excel" }
       ]
     },
     {
