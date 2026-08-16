@@ -20,41 +20,112 @@
     "logo": "/images/certs/aws.png"
   },
   {
-  "slug": "aws-security-fundamentals",
-  "title": "AWS Security Fundamentals",
-  "issuer": "Amazon Web Services Training and Certification",
-  "date": "2026",
-  "credentialId": "",
-  "url": "https://drive.google.com/file/d/1XBPlYQdIgI41xD6Gg-KCCEs4_Vo-kMKr/view?usp=sharing",
-  "tags": [
-    "AWS Security",
-    "Cloud Security"
-  ],
-  "summary": "Fundamentals of securing AWS environments, including core security concepts, services, and best practices.",
-  "body": [
-    "Covers foundational AWS security concepts, including security best practices, core AWS security services, and approaches to protecting cloud environments. Completed through AWS Training & Certification in August 2026."
-  ],
-  "logo": "/images/certs/aws.png"
-},
-{
-  "slug": "aws-educate-getting-started-with-security",
-  "title": "AWS Educate Getting Started with Security - Training Badge",
-  "issuer": "Amazon Web Services Training and Certification",
-  "date": "2026",
-  "credentialId": "9d0c0632-eac1-4e9f-8f46-1cd7d4eb7c5c",
-  "url": "https://www.credly.com/badges/9d0c0632-eac1-4e9f-8f46-1cd7d4eb7c5c/public_url",
-  "tags": [
-    "AWS Security",
-    "Cloud Security",
-    "AWS IAM"
-  ],
-  "summary": "Foundational AWS security training covering IAM and core AWS security services.",
-  "body": [
-    "Covers foundational AWS security concepts, including AWS Identity and Access Management (IAM) and additional AWS security services. Earned through AWS Educate in 2026."
-  ],
-  "logo": "/images/certs/aws.png"
-},
- {
+    "slug": "aws-cloud-practitioner-essentials",
+    "title": "AWS Cloud Practitioner Essentials",
+    "issuer": "Amazon Web Services Training and Certification",
+    "date": "2026",
+    "credentialId": "",
+    "url": "",
+    "tags": [
+      "AWS Cloud",
+      "AWS Core Services",
+      "AWS Security",
+      "AWS Pricing"
+    ],
+    "summary": "Foundational AWS cloud training covering core services, security, architecture, pricing, and cloud concepts.",
+    "body": [
+      "Covers the fundamental concepts of AWS Cloud, including core services, security, architecture, pricing, and support. Completed through AWS Training and Certification in 2026."
+    ],
+    "logo": "/images/certs/aws.png"
+  },
+  {
+    "slug": "aws-security-fundamentals",
+    "title": "AWS Security Fundamentals",
+    "issuer": "Amazon Web Services Training and Certification",
+    "date": "2026",
+    "credentialId": "",
+    "url": "https://drive.google.com/file/d/1XBPlYQdIgI41xD6Gg-KCCEs4_Vo-kMKr/view?usp=sharing",
+    "tags": [
+      "AWS Security",
+      "Cloud Security"
+    ],
+    "summary": "Fundamentals of securing AWS environments, including core security concepts, services, and best practices.",
+    "body": [
+      "Covers foundational AWS security concepts, including security best practices, core AWS security services, and approaches to protecting cloud environments. Completed through AWS Training & Certification in August 2026."
+    ],
+    "logo": "/images/certs/aws.png"
+  },
+  {
+    "slug": "aws-educate-getting-started-with-security",
+    "title": "AWS Educate - Getting Started with Security - Training Badge",
+    "issuer": "Amazon Web Services Training and Certification",
+    "date": "2026",
+    "credentialId": "https://www.credly.com/badges/89c7ab9e-75f5-4e2e-8868-9bb4b089c487/public_url",
+    "url": "",
+    "tags": [
+      "AWS Security",
+      "Cloud Security",
+      "AWS IAM"
+    ],
+    "summary": "Foundational AWS security training covering IAM and core AWS security services.",
+    "body": [
+      "Covers foundational AWS security concepts, including AWS Identity and Access Management (IAM) and additional AWS security services. Earned through AWS Educate in 2026."
+    ],
+    "logo": "/images/certs/aws.png"
+  },
+  {
+    "slug": "aws-machine-learning-foundations",
+    "title": "Machine Learning Foundations",
+    "issuer": "Amazon Web Services Training and Certification",
+    "date": "2026",
+    "credentialId": "",
+    "url": "",
+    "tags": [
+      "Machine Learning",
+      "AI",
+      "AWS"
+    ],
+    "summary": "Foundations of machine learning, including core concepts, terminology, workflows, and practical applications.",
+    "body": [
+      "Introduces fundamental machine learning concepts, terminology, workflows, and practical applications, providing a foundation for understanding how machine learning systems are developed and used. Completed through AWS Training and Certification in 2026."
+    ],
+    "logo": "/images/certs/aws.png"
+  },
+  {
+    "slug": "aws-fundamentals-of-generative-ai",
+    "title": "Fundamentals of Generative AI",
+    "issuer": "Amazon Web Services Training and Certification",
+    "date": "2026",
+    "credentialId": "",
+    "url": "",
+    "tags": [
+      "Generative AI",
+      "AI",
+      "AWS"
+    ],
+    "summary": "Foundations of generative AI, including core concepts, applications, and responsible use.",
+    "body": [
+      "Introduces the foundations of generative artificial intelligence, including key concepts, capabilities, applications, and responsible approaches to using generative AI. Completed through AWS Training and Certification in 2026."
+    ],
+    "logo": "/images/certs/aws.png"
+  },
+  {
+    "slug": "cisco-introduction-to-modern-ai",
+    "title": "Introduction to Modern AI",
+    "issuer": "Cisco Networking Academy",
+    "date": "2026",
+    "credentialId": "7577ed31-c9ca-4913-85a1-8bb7f30754e8",
+    "url": "https://www.credly.com/badges/7577ed31-c9ca-4913-85a1-8bb7f30754e8",
+    "tags": [
+      "AI"
+    ],
+    "summary": "Foundations of modern artificial intelligence: core concepts, applications, and responsible use.",
+    "body": [
+      "An introduction to how modern AI systems work and where they are applied — machine learning concepts, practical use cases, and responsible AI considerations. Earned through the Cisco Networking Academy in 2026."
+    ],
+    "logo": "/images/certs/cisco-networking-academy.png"
+  },
+  {
     "slug": "cisco-security-and-connectivity-support",
     "title": "Security and Connectivity Support",
     "issuer": "Cisco Networking Academy",
@@ -86,38 +157,6 @@
       "Covers the core skills of front-line IT support — diagnosing common hardware and software issues, walking users through fixes, and communicating clearly under pressure. Earned through the Cisco Networking Academy in 2026."
     ],
     "logo": "/images/certs/cisco-networking-academy.png"
-  },
-  {
-    "slug": "cisco-introduction-to-modern-ai",
-    "title": "Introduction to Modern AI",
-    "issuer": "Cisco Networking Academy",
-    "date": "2026",
-    "credentialId": "7577ed31-c9ca-4913-85a1-8bb7f30754e8",
-    "url": "https://www.credly.com/badges/7577ed31-c9ca-4913-85a1-8bb7f30754e8",
-    "tags": [
-      "AI"
-    ],
-    "summary": "Foundations of modern artificial intelligence: core concepts, applications, and responsible use.",
-    "body": [
-      "An introduction to how modern AI systems work and where they are applied — machine learning concepts, practical use cases, and responsible AI considerations. Earned through the Cisco Networking Academy in 2026."
-    ],
-    "logo": "/images/certs/cisco-networking-academy.png"
-  },
-  {
-    "slug": "cisco-creating-compelling-reports",
-    "title": "Creating Compelling Reports",
-    "issuer": "Cisco Networking Academy",
-    "date": "2026",
-    "credentialId": "fa9ded25-9087-481b-b773-b46e3f4cb366",
-    "url": "https://www.credly.com/badges/fa9ded25-9087-481b-b773-b46e3f4cb366",
-    "tags": [
-      "Data Analysis",
-      "Reporting"
-    ],
-    "summary": "Creating effective reports: data visualization, storytelling, and actionable insights.",
-    "body": [
-      "Teaches how to turn data into clear, compelling reports — visualizing data effectively, crafting narratives around insights, and presenting findings for decision-making. Earned through the Cisco Networking Academy in 2026."
-    ],
-    "logo": "/images/certs/cisco-networking-academy.png"
   }
+
 ]
