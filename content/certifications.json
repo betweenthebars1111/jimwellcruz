@@ -20,6 +20,23 @@
     "logo": "/images/certs/aws.png"
   },
   {
+  "slug": "aws-security-fundamentals",
+  "title": "AWS Security Fundamentals",
+  "issuer": "Amazon Web Services Training and Certification",
+  "date": "2026",
+  "credentialId": "",
+  "url": "https://drive.google.com/file/d/1XBPlYQdIgI41xD6Gg-KCCEs4_Vo-kMKr/view?usp=sharing",
+  "tags": [
+    "AWS Security",
+    "Cloud Security"
+  ],
+  "summary": "Fundamentals of securing AWS environments, including core security concepts, services, and best practices.",
+  "body": [
+    "Covers foundational AWS security concepts, including security best practices, core AWS security services, and approaches to protecting cloud environments. Completed through AWS Training & Certification in August 2026."
+  ],
+  "logo": "/images/certs/aws.png"
+},
+  {
     "slug": "cisco-it-customer-support-basics",
     "title": "IT Customer Support Basics",
     "issuer": "Cisco Networking Academy",
