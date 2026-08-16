@@ -36,6 +36,24 @@
   ],
   "logo": "/images/certs/aws.png"
 },
+{
+  "slug": "aws-educate-getting-started-with-security",
+  "title": "AWS Educate Getting Started with Security - Training Badge",
+  "issuer": "Amazon Web Services Training and Certification",
+  "date": "2026",
+  "credentialId": "9d0c0632-eac1-4e9f-8f46-1cd7d4eb7c5c",
+  "url": "https://www.credly.com/badges/9d0c0632-eac1-4e9f-8f46-1cd7d4eb7c5c/public_url",
+  "tags": [
+    "AWS Security",
+    "Cloud Security",
+    "AWS IAM"
+  ],
+  "summary": "Foundational AWS security training covering IAM and core AWS security services.",
+  "body": [
+    "Covers foundational AWS security concepts, including AWS Identity and Access Management (IAM) and additional AWS security services. Earned through AWS Educate in 2026."
+  ],
+  "logo": "/images/certs/aws.png"
+},
  {
     "slug": "cisco-security-and-connectivity-support",
     "title": "Security and Connectivity Support",
