@@ -36,23 +36,7 @@
   ],
   "logo": "/images/certs/aws.png"
 },
-  {
-    "slug": "cisco-it-customer-support-basics",
-    "title": "IT Customer Support Basics",
-    "issuer": "Cisco Networking Academy",
-    "date": "2026",
-    "credentialId": "f1e9a1be-9a3d-46e5-9140-7fd3dd24915e",
-    "url": "https://www.credly.com/badges/f1e9a1be-9a3d-46e5-9140-7fd3dd24915e",
-    "tags": [
-      "IT Support"
-    ],
-    "summary": "Fundamentals of IT customer support: troubleshooting workflows, communication, and service best practices.",
-    "body": [
-      "Covers the core skills of front-line IT support — diagnosing common hardware and software issues, walking users through fixes, and communicating clearly under pressure. Earned through the Cisco Networking Academy in 2026."
-    ],
-    "logo": "/images/certs/cisco-networking-academy.png"
-  },
-  {
+ {
     "slug": "cisco-security-and-connectivity-support",
     "title": "Security and Connectivity Support",
     "issuer": "Cisco Networking Academy",
@@ -66,6 +50,22 @@
     "summary": "Supporting secure network connectivity: network fundamentals, security basics, and connectivity troubleshooting.",
     "body": [
       "Focuses on keeping users securely connected — network fundamentals, common security threats and mitigations, and systematic troubleshooting of connectivity problems. Earned through the Cisco Networking Academy in 2026."
+    ],
+    "logo": "/images/certs/cisco-networking-academy.png"
+  },
+  {
+    "slug": "cisco-it-customer-support-basics",
+    "title": "IT Customer Support Basics",
+    "issuer": "Cisco Networking Academy",
+    "date": "2026",
+    "credentialId": "f1e9a1be-9a3d-46e5-9140-7fd3dd24915e",
+    "url": "https://www.credly.com/badges/f1e9a1be-9a3d-46e5-9140-7fd3dd24915e",
+    "tags": [
+      "IT Support"
+    ],
+    "summary": "Fundamentals of IT customer support: troubleshooting workflows, communication, and service best practices.",
+    "body": [
+      "Covers the core skills of front-line IT support — diagnosing common hardware and software issues, walking users through fixes, and communicating clearly under pressure. Earned through the Cisco Networking Academy in 2026."
     ],
     "logo": "/images/certs/cisco-networking-academy.png"
   },
