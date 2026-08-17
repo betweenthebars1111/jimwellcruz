@@ -235,43 +235,61 @@ export default function Home() {
       </section>
 
       {/* 04 — certifications */}
-      <section
-        id="certifications"
-        className="reveal mt-14 scroll-mt-20"
-        style={delay(4)}
-      >
-        <SectionHeader n="04" title="certifications" />
-        <div className="divide-y divide-gray-200">
-          {certifications.map((c) => (
-            <Link
-              key={c.slug}
-              href={`/certifications/${c.slug}`}
-              className="group flex items-center justify-between gap-4 py-4"
-            >
-              <div className="flex min-w-0 items-center gap-3">
-                {c.logo && (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={c.logo}
-                    alt={`${c.issuer} logo`}
-                    className="h-7 w-auto max-w-[64px] shrink-0 object-contain"
-                  />
-                )}
-                <div className="min-w-0">
-                  <h3 className="font-medium">
-                    {c.title}
-                    <span className="ml-2 inline-block text-gray-400 opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100">
-                      →
-                    </span>
-                  </h3>
-                  <p className="mt-1 text-[13px] text-gray-500">{c.issuer}</p>
-                </div>
-              </div>
-              <span className="micro shrink-0">{c.date}</span>
-            </Link>
-          ))}
-        </div>
-      </section>
+<section
+  id="certifications"
+  className="reveal mt-14 scroll-mt-20"
+  style={delay(4)}
+>
+  <SectionHeader
+    n="04"
+    title="certifications"
+    href="/certifications"
+    hrefLabel="all certifications →"
+  />
+
+  <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    {[
+      "aws-academy-cloud-foundations",
+      "aws-security-fundamentals",
+      "cisco-introduction-to-modern-ai",
+    ].map((slug) => {
+      const c = certifications.find((cert) => cert.slug === slug);
+      if (!c) return null;
+
+      return (
+        <Link
+          key={c.slug}
+          href={`/certifications/${c.slug}`}
+          className="group relative flex min-h-[210px] flex-col items-center rounded-xl border border-gray-200 bg-gray-50 p-5 text-center shadow-card transition-[transform,box-shadow] duration-300 ease-out-expo hover:-translate-y-0.5 hover:shadow-card-hover"
+        >
+          <div className="flex h-14 items-center justify-center">
+            {c.logo && (
+              <Image
+                src={c.logo}
+                alt={`${c.issuer} logo`}
+                width={56}
+                height={56}
+                className="max-h-12 w-auto object-contain"
+              />
+            )}
+          </div>
+
+          <h3 className="mt-4 text-sm font-medium leading-snug">
+            {c.title}
+          </h3>
+
+          <p className="micro mt-2">
+            {c.issuer}
+          </p>
+
+          <span className="micro mt-auto pt-5 text-gray-400 transition-colors group-hover:text-ink">
+            ‹ view ›
+          </span>
+        </Link>
+      );
+    })}
+  </div>
+</section>
 
       {/* 05 — recommendations */}
       <section

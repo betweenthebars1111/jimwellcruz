@@ -61,6 +61,7 @@ export interface Certification {
   slug: string;
   title: string;
   issuer: string;
+  category: string;
   date: string;
   credentialId: string;
   url: string;
