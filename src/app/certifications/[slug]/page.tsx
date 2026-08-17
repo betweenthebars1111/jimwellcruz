@@ -19,21 +19,32 @@ export async function generateMetadata({
 
 export default async function CertificationPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ from?: string }>;
 }) {
   const { slug } = await params;
+  const { from } = await searchParams;
+
   const c = getCertification(slug);
   if (!c) notFound();
+
   const meta = [
     { label: "issuer", value: c.issuer },
     { label: "issued", value: c.date },
   ];
-  if (c.credentialId)
+
+  if (c.credentialId) {
     meta.push({ label: "credential id", value: c.credentialId });
+  }
+
+  const backHref =
+    from === "all" ? "/certifications" : "/#certifications";
+
   return (
     <DetailShell
-      backHref="/#certifications"
+      backHref={backHref}
       backLabel="certifications"
       kicker="certification"
       title={c.title.toLowerCase()}

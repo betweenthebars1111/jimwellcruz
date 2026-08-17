@@ -45,10 +45,10 @@ export default function CertificationsPage() {
                 {categoryCertifications.map((certification) => (
                   <Link
                     key={certification.slug}
-                    href={`/certifications/${certification.slug}`}
-                    className="group relative flex min-h-[210px] flex-col rounded-xl border border-gray-200 bg-gray-50 p-5 shadow-card transition-[transform,box-shadow] duration-300 ease-out-expo hover:-translate-y-0.5 hover:shadow-card-hover"
+                    href={`/certifications/${certification.slug}?from=all`}
+                    className="group relative flex min-h-[210px] flex-col items-center rounded-xl border border-gray-200 bg-gray-50 p-5 text-center shadow-card transition-[transform,box-shadow] duration-300 ease-out-expo hover:-translate-y-0.5 hover:shadow-card-hover"
                   >
-                    <div className="flex items-center justify-between">
+                    <div className="flex w-full items-center justify-between">
                       <span className="micro">
                         {certification.date}
                       </span>
@@ -58,7 +58,7 @@ export default function CertificationsPage() {
                       </span>
                     </div>
 
-                    <div className="mt-5 flex h-12 items-center">
+                    <div className="mt-5 flex h-12 w-full items-center justify-center">
                       {certification.logo && (
                         <Image
                           src={certification.logo}

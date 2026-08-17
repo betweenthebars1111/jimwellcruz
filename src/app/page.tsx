@@ -251,7 +251,7 @@ export default function Home() {
     {[
       "aws-academy-cloud-foundations",
       "aws-security-fundamentals",
-      "cisco-introduction-to-modern-ai",
+      "aws-machine-learning-foundations",
     ].map((slug) => {
       const c = certifications.find((cert) => cert.slug === slug);
       if (!c) return null;
@@ -259,7 +259,7 @@ export default function Home() {
       return (
         <Link
           key={c.slug}
-          href={`/certifications/${c.slug}`}
+          href={`/certifications/${c.slug}?from=home`}
           className="group relative flex min-h-[210px] flex-col items-center rounded-xl border border-gray-200 bg-gray-50 p-5 text-center shadow-card transition-[transform,box-shadow] duration-300 ease-out-expo hover:-translate-y-0.5 hover:shadow-card-hover"
         >
           <div className="flex h-14 items-center justify-center">
