@@ -64,8 +64,8 @@
     "issuer": "Amazon Web Services Training and Certification",
     "category": "Cloud & DevOps",
     "date": "2026",
-    "credentialId": "https://www.credly.com/badges/89c7ab9e-75f5-4e2e-8868-9bb4b089c487/public_url",
-    "url": "",
+    "credentialId": "",
+    "url": "https://www.credly.com/badges/89c7ab9e-75f5-4e2e-8868-9bb4b089c487/public_url",
     "tags": [
       "AWS Security",
       "Cloud Security",
