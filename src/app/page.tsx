@@ -86,10 +86,16 @@ export default function Home() {
       <section className="reveal" style={delay(0)}>
         <div className="flex flex-col-reverse items-start justify-between gap-8 sm:flex-row">
           <div className="min-w-0">
-            <p className="micro flex items-center gap-2">
-              <span className="dot-pulse text-ink">●</span> {profile.status}
-            </p>
-            <h1 className="mt-4 font-pixel text-5xl leading-none">
+            {profile.status && (
+              <p className="micro flex items-center gap-2">
+                <span className="dot-pulse text-ink">●</span> {profile.status}
+              </p>
+            )}
+            <h1
+              className={`font-pixel text-5xl leading-none ${
+                profile.status ? "mt-4" : ""
+              }`}
+            >
               {profile.displayName}
             </h1>
             <p className="micro mt-3">

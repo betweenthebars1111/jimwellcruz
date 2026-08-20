@@ -17,7 +17,8 @@ export interface Profile {
   displayName: string;
   role: string;
   location: string;
-  status: string;
+  /** Availability badge in the hero. Leave empty to hide it. */
+  status?: string;
   bio: string;
   photo: string;
   resume: string;
