@@ -61,7 +61,8 @@ export interface Certification {
   slug: string;
   title: string;
   issuer: string;
-  category: string;
+  /** Grouping used by /certifications. Unknown or missing values fall into "Other" rather than disappearing. */
+  category?: string;
   date: string;
   credentialId: string;
   url: string;
@@ -70,6 +71,8 @@ export interface Certification {
   body: string[];
   /** Optional issuer logo. Paste an image path from /public (e.g. "/images/certs/cisco-networking-academy.png") or a full URL. Leave out to show no logo. */
   logo?: string;
+  /** Set to surface this certification on the home page. The first three win. */
+  featured?: boolean;
 }
 
 export interface Recommendation {

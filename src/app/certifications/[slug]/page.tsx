@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import CertificationBackLink from "@/components/CertificationBackLink";
 import DetailShell from "@/components/DetailShell";
 import { certifications, getCertification } from "@/lib/content";
 
@@ -19,13 +20,10 @@ export async function generateMetadata({
 
 export default async function CertificationPage({
   params,
-  searchParams,
 }: {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ from?: string }>;
 }) {
   const { slug } = await params;
-  const { from } = await searchParams;
 
   const c = getCertification(slug);
   if (!c) notFound();
@@ -39,13 +37,9 @@ export default async function CertificationPage({
     meta.push({ label: "credential id", value: c.credentialId });
   }
 
-  const backHref =
-    from === "all" ? "/certifications" : "/#certifications";
-
   return (
     <DetailShell
-      backHref={backHref}
-      backLabel="certifications"
+      backSlot={<CertificationBackLink />}
       kicker="certification"
       title={c.title.toLowerCase()}
       logo={c.logo}

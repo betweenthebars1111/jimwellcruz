@@ -4,6 +4,7 @@
     "title": "AWS Academy Graduate - Cloud Foundations",
     "issuer": "Amazon Web Services Training and Certification",
     "category": "Cloud & DevOps",
+    "featured": true,
     "date": "2026",
     "credentialId": "9d0c0632-eac1-4e9f-8f46-1cd7d4eb7c5c",
     "url": "https://www.credly.com/badges/9d0c0632-eac1-4e9f-8f46-1cd7d4eb7c5c/public_url",
@@ -45,6 +46,7 @@
     "title": "AWS Security Fundamentals",
     "issuer": "Amazon Web Services Training and Certification",
     "category": "Cloud & DevOps",
+    "featured": true,
     "date": "2026",
     "credentialId": "",
     "url": "https://drive.google.com/file/d/1XBPlYQdIgI41xD6Gg-KCCEs4_Vo-kMKr/view?usp=sharing",
@@ -82,6 +84,7 @@
     "title": "Machine Learning Foundations",
     "issuer": "Amazon Web Services Training and Certification",
     "category": "AI & Machine Learning",
+    "featured": true,
     "date": "2026",
     "credentialId": "",
     "url": "",
@@ -167,5 +170,4 @@
     ],
     "logo": "/images/certs/cisco-networking-academy.png"
   }
-
 ]

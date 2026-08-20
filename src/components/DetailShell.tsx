@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import type { ItemLink } from "@/lib/content";
 
 interface MetaRow {
@@ -9,6 +10,7 @@ interface MetaRow {
 export default function DetailShell({
   backHref,
   backLabel,
+  backSlot,
   kicker,
   title,
   logo,
@@ -20,8 +22,10 @@ export default function DetailShell({
   body,
   highlights,
 }: {
-  backHref: string;
-  backLabel: string;
+  backHref?: string;
+  backLabel?: string;
+  /** Renders in place of the default back link, for pages that resolve it on the client. */
+  backSlot?: ReactNode;
   kicker: string;
   title: string;
   logo?: string;
@@ -35,9 +39,11 @@ export default function DetailShell({
 }) {
   return (
     <article className="reveal">
-      <Link href={backHref} className="micro link">
-        ← {backLabel}
-      </Link>
+      {backSlot ?? (
+        <Link href={backHref ?? "/"} className="micro link">
+          ← {backLabel ?? "index"}
+        </Link>
+      )}
       <p className="micro mt-10">{kicker}</p>
       <h1 className="mt-3 font-pixel text-4xl lowercase leading-none">
         {title}
