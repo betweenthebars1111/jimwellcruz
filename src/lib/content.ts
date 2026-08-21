@@ -64,6 +64,8 @@ export interface Certification {
   issuer: string;
   /** Compact issuer name for cards. Falls back to `issuer` when absent. */
   issuerShort?: string;
+  /** Set when `logo` is a square credential badge rather than a wide wordmark, so it gets rendered larger. */
+  logoBadge?: boolean;
   /** Grouping used by /certifications. Unknown or missing values fall into "Other" rather than disappearing. */
   category?: string;
   date: string;

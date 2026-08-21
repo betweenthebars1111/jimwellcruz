@@ -10,7 +10,8 @@ export const metadata: Metadata = {
 export default function StackPage() {
   return (
     <div className="reveal">
-      <Link href="/" className="micro link">
+      {/* back to the homepage section this page expands on, not the top of the page */}
+      <Link href="/#stack" className="micro link">
         ← index
       </Link>
       <p className="micro mt-10">tools i reach for</p>

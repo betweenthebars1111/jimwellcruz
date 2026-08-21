@@ -32,7 +32,6 @@ export default async function ExperiencePage({
   return (
     <DetailShell
       backHref="/#experience"
-      backLabel="experience"
       kicker={`experience — ${e.start} — ${e.end}`}
       title={e.role.toLowerCase()}
       meta={[

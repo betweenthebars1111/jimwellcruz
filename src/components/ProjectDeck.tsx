@@ -24,30 +24,53 @@ export default function ProjectDeck({ projects }: { projects: Project[] }) {
   const [drag, setDrag] = useState(0);
 
   const pointerStart = useRef<number | null>(null);
+  /* authoritative drag distance: state lags a frame behind the last pointermove */
+  const dragged = useRef(0);
+  const capturing = useRef(false);
   const swallowClick = useRef(false);
 
   const go = useCallback(
     (direction: number) =>
       setActive((current) => (current + direction + total) % total),
-    [total]
+    [total],
   );
 
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     if (total < 2) return;
     pointerStart.current = e.clientX;
-    e.currentTarget.setPointerCapture(e.pointerId);
+    dragged.current = 0;
+    capturing.current = false;
+    swallowClick.current = false;
   };
 
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (pointerStart.current === null) return;
-    setDrag(e.clientX - pointerStart.current);
+    const distance = e.clientX - pointerStart.current;
+    dragged.current = distance;
+
+    /* Capture only once this is unmistakably a drag. Capturing on pointerdown
+       would retarget the follow-up click to this container, and the card's
+       link would stop working entirely. */
+    if (!capturing.current && Math.abs(distance) > CLICK_SLOP) {
+      e.currentTarget.setPointerCapture(e.pointerId);
+      capturing.current = true;
+    }
+    setDrag(distance);
   };
 
-  const endDrag = () => {
+  const endDrag = (e: React.PointerEvent<HTMLDivElement>) => {
     if (pointerStart.current === null) return;
-    if (Math.abs(drag) > FLICK_DISTANCE) go(drag < 0 ? 1 : -1);
-    if (Math.abs(drag) > CLICK_SLOP) swallowClick.current = true;
+    const distance = dragged.current;
+
+    if (capturing.current && e.currentTarget.hasPointerCapture(e.pointerId)) {
+      e.currentTarget.releasePointerCapture(e.pointerId);
+    }
+    if (Math.abs(distance) > FLICK_DISTANCE) go(distance < 0 ? 1 : -1);
+    if (Math.abs(distance) > CLICK_SLOP) swallowClick.current = true;
+
     pointerStart.current = null;
+    capturing.current = false;
+    dragged.current = 0;
     setDrag(0);
   };
 
@@ -79,6 +102,7 @@ export default function ProjectDeck({ projects }: { projects: Project[] }) {
         onPointerUp={endDrag}
         onPointerCancel={endDrag}
         onClickCapture={onClickCapture}
+        onDragStart={(e) => e.preventDefault()}
         className="relative touch-pan-y select-none overflow-hidden py-10 [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]"
       >
         {/* the stage the deck sits on, using the site's halftone texture */}
@@ -98,11 +122,11 @@ export default function ProjectDeck({ projects }: { projects: Project[] }) {
             return (
               <li
                 key={p.slug}
-                className="flex items-center justify-center [grid-area:1/1]"
+                className="pointer-events-none flex items-center justify-center [grid-area:1/1]"
                 style={{ zIndex: total - distance }}
               >
                 <div
-                  className="relative w-[min(84%,24rem)] transition-[transform,opacity,filter] duration-500 ease-out-expo"
+                  className="pointer-events-auto relative w-[min(84%,24rem)] transition-[transform,opacity,filter] duration-500 ease-out-expo"
                   style={{
                     transform: `translateX(calc(${offset * 32}% + ${
                       drag * (isActive ? 0.55 : 0.28)
@@ -118,19 +142,20 @@ export default function ProjectDeck({ projects }: { projects: Project[] }) {
                     }`}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="micro">{p.year}</span>
+                      <span className="micro text-gray-500">{p.year}</span>
                       {p.featured ? (
                         <span className="rounded-full bg-ink px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.1em] text-bg">
                           featured
                         </span>
                       ) : (
-                        <span className="micro">{p.status}</span>
+                        <span className="micro text-gray-500">{p.status}</span>
                       )}
                     </div>
 
                     <h3 className="mt-5 font-pixel text-xl lowercase leading-tight">
                       <Link
                         href={`/projects/${p.slug}`}
+                        draggable={false}
                         tabIndex={isActive ? undefined : -1}
                         className="after:absolute after:inset-0 after:rounded-2xl"
                       >
@@ -152,6 +177,7 @@ export default function ProjectDeck({ projects }: { projects: Project[] }) {
                       <div className="mt-auto pt-6">
                         <a
                           href={repo.url}
+                          draggable={false}
                           target="_blank"
                           rel="noopener noreferrer"
                           tabIndex={isActive ? undefined : -1}
@@ -184,7 +210,7 @@ export default function ProjectDeck({ projects }: { projects: Project[] }) {
           type="button"
           onClick={() => go(-1)}
           aria-label="Previous project"
-          className="micro px-1 text-gray-400 transition-colors hover:text-ink"
+          className="micro px-1 text-gray-500 transition-colors hover:text-ink"
         >
           ←
         </button>
@@ -210,7 +236,7 @@ export default function ProjectDeck({ projects }: { projects: Project[] }) {
           type="button"
           onClick={() => go(1)}
           aria-label="Next project"
-          className="micro px-1 text-gray-400 transition-colors hover:text-ink"
+          className="micro px-1 text-gray-500 transition-colors hover:text-ink"
         >
           →
         </button>

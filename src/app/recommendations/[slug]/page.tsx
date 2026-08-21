@@ -28,7 +28,6 @@ export default async function RecommendationPage({
   return (
     <DetailShell
       backHref="/#recommendations"
-      backLabel="recommendations"
       kicker={`recommendation — ${r.date}`}
       title={r.name.toLowerCase()}
       meta={[

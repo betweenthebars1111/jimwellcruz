@@ -9,7 +9,6 @@ interface MetaRow {
 
 export default function DetailShell({
   backHref,
-  backLabel,
   backSlot,
   kicker,
   title,
@@ -23,7 +22,6 @@ export default function DetailShell({
   highlights,
 }: {
   backHref?: string;
-  backLabel?: string;
   /** Renders in place of the default back link, for pages that resolve it on the client. */
   backSlot?: ReactNode;
   kicker: string;
@@ -41,7 +39,7 @@ export default function DetailShell({
     <article className="reveal">
       {backSlot ?? (
         <Link href={backHref ?? "/"} className="micro link">
-          ← {backLabel ?? "index"}
+          ← index
         </Link>
       )}
       <p className="micro mt-10">{kicker}</p>

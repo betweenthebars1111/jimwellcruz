@@ -7,7 +7,7 @@ import { useSearchParams } from "next/navigation";
 function BackLink({ href }: { href: string }) {
   return (
     <Link href={href} className="micro link">
-      ← certifications
+      ← index
     </Link>
   );
 }

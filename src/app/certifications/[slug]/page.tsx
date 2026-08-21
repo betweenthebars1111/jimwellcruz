@@ -43,6 +43,7 @@ export default async function CertificationPage({
       kicker="certification"
       title={c.title.toLowerCase()}
       logo={c.logo}
+      logoClassName={c.logoBadge ? "!h-20 !max-w-none" : "logo-lift"}
       meta={meta}
       tags={c.tags}
       links={c.url ? [{ label: "verify credential", url: c.url }] : []}

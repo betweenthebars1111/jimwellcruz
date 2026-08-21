@@ -9,7 +9,12 @@ export const metadata: Metadata = {
 };
 
 /** Preferred display order. Anything else still shows, appended after these. */
-const categoryOrder = ["Cloud & DevOps", "AI & Machine Learning", "IT & Security"];
+const categoryOrder = [
+  "Cloud & DevOps",
+  "AI & Machine Learning",
+  "IT & Security",
+  "Professional Skills",
+];
 
 function groupByCategory(items: Certification[]) {
   const groups = new Map<string, Certification[]>(
@@ -29,7 +34,8 @@ function groupByCategory(items: Certification[]) {
 export default function CertificationsPage() {
   return (
     <div className="reveal">
-      <Link href="/" className="micro link">
+      {/* back to the homepage section this page expands on, not the top of the page */}
+      <Link href="/#certifications" className="micro link">
         ← index
       </Link>
 

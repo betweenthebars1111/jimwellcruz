@@ -28,7 +28,6 @@ export default async function ProjectPage({
   return (
     <DetailShell
       backHref="/#projects"
-      backLabel="projects"
       kicker={`project — ${p.year} · ${p.status}`}
       title={p.title.toLowerCase()}
       meta={[

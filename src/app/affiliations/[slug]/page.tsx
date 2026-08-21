@@ -28,7 +28,6 @@ export default async function AffiliationPage({
   return (
     <DetailShell
       backHref="/#affiliations"
-      backLabel="affiliations"
       kicker={`affiliation — ${a.start} — ${a.end}`}
       title={a.org.toLowerCase()}
       logo={a.logo}

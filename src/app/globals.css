@@ -78,18 +78,23 @@ body {
     filter 0.5s ease !important;
 }
 
-.link {
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  text-decoration-color: rgb(var(--c-ink) / 0.25);
-  transition: text-decoration-color 0.2s ease;
-}
-.link:hover {
-  text-decoration-color: rgb(var(--c-ink) / 1);
-}
+/* These live in the components layer so plain utilities can still override them.
+   Outside a layer they are emitted after `@tailwind utilities`, where an equal
+   specificity means `.micro` beats a `text-gray-500` sitting next to it. */
+@layer components {
+  .link {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: rgb(var(--c-ink) / 0.25);
+    transition: text-decoration-color 0.2s ease;
+  }
+  .link:hover {
+    text-decoration-color: rgb(var(--c-ink) / 1);
+  }
 
-.micro {
-  @apply font-mono text-[10px] uppercase tracking-[0.1em] text-gray-400;
+  .micro {
+    @apply font-mono text-[10px] uppercase tracking-[0.1em] text-gray-400;
+  }
 }
 
 .halftone,
@@ -131,6 +136,16 @@ body {
 }
 .dark .logo-invert {
   filter: none;
+}
+
+/* the inverse case: near-black artwork (the AWS and Cisco wordmarks) sits at
+   ~1.3:1 on the dark card, so it flattens to white there. Light mode keeps the
+   full-colour marks; a plate behind the logo read as a glaring white box. */
+.logo-lift {
+  filter: none;
+}
+.dark .logo-lift {
+  filter: brightness(0) invert(1);
 }
 
 @keyframes fade-up {

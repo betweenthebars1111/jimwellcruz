@@ -20,7 +20,8 @@
     "body": [
       "Covers the fundamentals of cloud computing on AWS — core services, basic architecture and security principles, pricing and billing models, and the AWS support ecosystem. Earned through the AWS Academy in 2026."
     ],
-    "logo": "/images/certs/aws.png"
+    "logo": "/images/certs/aws-academy-cloud-foundations.png",
+    "logoBadge": true
   },
   {
     "slug": "aws-cloud-practitioner-essentials",
@@ -81,7 +82,8 @@
     "body": [
       "Covers foundational AWS security concepts, including AWS Identity and Access Management (IAM) and additional AWS security services. Earned through AWS Educate in 2026."
     ],
-    "logo": "/images/certs/aws.png"
+    "logo": "/images/certs/aws-educate-getting-started-with-security.png",
+    "logoBadge": true
   },
   {
     "slug": "aws-machine-learning-foundations",
@@ -139,7 +141,8 @@
     "body": [
       "An introduction to how modern AI systems work and where they are applied — machine learning concepts, practical use cases, and responsible AI considerations. Earned through the Cisco Networking Academy in 2026."
     ],
-    "logo": "/images/certs/cisco-networking-academy.png"
+    "logo": "/images/certs/cisco-introduction-to-modern-ai.png",
+    "logoBadge": true
   },
   {
     "slug": "cisco-security-and-connectivity-support",
@@ -157,7 +160,8 @@
     "body": [
       "Focuses on keeping users securely connected — network fundamentals, common security threats and mitigations, and systematic troubleshooting of connectivity problems. Earned through the Cisco Networking Academy in 2026."
     ],
-    "logo": "/images/certs/cisco-networking-academy.png"
+    "logo": "/images/certs/cisco-security-and-connectivity-support.png",
+    "logoBadge": true
   },
   {
     "slug": "cisco-it-customer-support-basics",
@@ -174,6 +178,26 @@
     "body": [
       "Covers the core skills of front-line IT support — diagnosing common hardware and software issues, walking users through fixes, and communicating clearly under pressure. Earned through the Cisco Networking Academy in 2026."
     ],
-    "logo": "/images/certs/cisco-networking-academy.png"
+    "logo": "/images/certs/cisco-it-customer-support-basics.png",
+    "logoBadge": true
+  },
+  {
+    "slug": "cisco-creating-compelling-reports",
+    "title": "Creating Compelling Reports",
+    "issuer": "Cisco Networking Academy",
+    "category": "Professional Skills",
+    "date": "2026",
+    "credentialId": "fa9ded25-9087-481b-b773-b46e3f4cb366",
+    "url": "https://www.credly.com/badges/fa9ded25-9087-481b-b773-b46e3f4cb366/public_url",
+    "tags": [
+      "Communication",
+      "Technical Writing"
+    ],
+    "summary": "Writing reports that land: choosing the right tone, structure, and level of detail for a specific audience.",
+    "body": [
+      "Covers why reports carry weight in a business setting and how to build one that actually gets read — judging what is relevant to a given audience, setting an appropriate tone, and organising the argument so the message survives the reader's attention span. Assessed through 24 scenario-based interactions and a branching scenario. Earned through the Cisco Networking Academy in 2026."
+    ],
+    "logo": "/images/certs/cisco-creating-compelling-reports.png",
+    "logoBadge": true
   }
 ]
