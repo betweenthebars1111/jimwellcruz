@@ -4,6 +4,9 @@ import GetInTouch from "@/components/GetInTouch";
 import GitHubContributions, {
   githubUsername,
 } from "@/components/GitHubContributions";
+import CertificationCard from "@/components/CertificationCard";
+import Pill from "@/components/Pill";
+import ProjectDeck from "@/components/ProjectDeck";
 import {
   profile,
   projects,
@@ -52,14 +55,6 @@ function SectionHeader({
           </Link>
         ))}
     </div>
-  );
-}
-
-function Pill({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="rounded-full border border-gray-300 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.1em] text-gray-500">
-      {children}
-    </span>
   );
 }
 
@@ -137,54 +132,7 @@ export default function Home() {
       {/* 01 — projects */}
       <section id="projects" className="reveal scroll-mt-20" style={delay(1)}>
         <SectionHeader n="01" title="projects" />
-        <div className="mt-6 grid gap-3 sm:grid-cols-2">
-          {projects.map((p) => {
-            /* the card body is the link; repo links sit above it, so the card
-               is a div rather than a nested-anchor Link */
-            const repo = p.links.find((l) => l.label === "github");
-            return (
-              <div
-                key={p.slug}
-                className="group relative flex flex-col rounded-xl border border-gray-200 bg-gray-50 p-5 shadow-card transition-[transform,box-shadow] duration-300 ease-out-expo hover:-translate-y-0.5 hover:shadow-card-hover"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="micro">{p.year}</span>
-                  {p.featured ? (
-                    <span className="rounded-full bg-ink px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.1em] text-bg">
-                      featured
-                    </span>
-                  ) : (
-                    <span className="micro">{p.status}</span>
-                  )}
-                </div>
-                <h3 className="mt-3 font-medium">
-                  <Link
-                    href={`/projects/${p.slug}`}
-                    className="after:absolute after:inset-0 after:rounded-xl"
-                  >
-                    {p.title}
-                  </Link>
-                </h3>
-                <p className="mt-1 text-[13px] text-gray-500">{p.tagline}</p>
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                  {p.tags.map((t) => (
-                    <Pill key={t}>{t}</Pill>
-                  ))}
-                </div>
-                {repo && (
-                  <a
-                    href={repo.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="micro link relative z-10 mt-auto self-start pt-4 text-gray-500"
-                  >
-                    github ↗
-                  </a>
-                )}
-              </div>
-            );
-          })}
-        </div>
+        <ProjectDeck projects={projects} />
       </section>
 
       {/* 02 — experience */}
@@ -258,33 +206,7 @@ export default function Home() {
             .filter((c) => c.featured)
             .slice(0, 3)
             .map((c) => (
-              <Link
-                key={c.slug}
-                href={`/certifications/${c.slug}?from=home`}
-                className="group relative flex min-h-[210px] flex-col items-center rounded-xl border border-gray-200 bg-gray-50 p-5 text-center shadow-card transition-[transform,box-shadow] duration-300 ease-out-expo hover:-translate-y-0.5 hover:shadow-card-hover"
-              >
-                <div className="flex h-14 items-center justify-center">
-                  {c.logo && (
-                    <Image
-                      src={c.logo}
-                      alt={`${c.issuer} logo`}
-                      width={56}
-                      height={56}
-                      className="max-h-12 w-auto object-contain"
-                    />
-                  )}
-                </div>
-
-                <h3 className="mt-4 text-sm font-medium leading-snug">
-                  {c.title}
-                </h3>
-
-                <p className="micro mt-2">{c.issuer}</p>
-
-                <span className="micro mt-auto pt-5 text-gray-400 transition-colors group-hover:text-ink">
-                  ‹ view ›
-                </span>
-              </Link>
+              <CertificationCard key={c.slug} certification={c} from="home" />
             ))}
         </div>
       </section>

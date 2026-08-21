@@ -62,6 +62,8 @@ export interface Certification {
   slug: string;
   title: string;
   issuer: string;
+  /** Compact issuer name for cards. Falls back to `issuer` when absent. */
+  issuerShort?: string;
   /** Grouping used by /certifications. Unknown or missing values fall into "Other" rather than disappearing. */
   category?: string;
   date: string;

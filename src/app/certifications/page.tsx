@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import CertificationCard from "@/components/CertificationCard";
 import { certifications, type Certification } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -54,36 +54,11 @@ export default function CertificationsPage() {
 
             <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {group.map((certification) => (
-                <Link
+                <CertificationCard
                   key={certification.slug}
-                  href={`/certifications/${certification.slug}?from=all`}
-                  className="group relative flex min-h-[210px] flex-col items-center rounded-xl border border-gray-200 bg-gray-50 p-5 text-center shadow-card transition-[transform,box-shadow] duration-300 ease-out-expo hover:-translate-y-0.5 hover:shadow-card-hover"
-                >
-                  <div className="flex w-full items-center justify-between">
-                    <span className="micro">{certification.date}</span>
-                    <span className="micro text-gray-300 transition-colors group-hover:text-gray-500">
-                      →
-                    </span>
-                  </div>
-
-                  <div className="mt-5 flex h-12 w-full items-center justify-center">
-                    {certification.logo && (
-                      <Image
-                        src={certification.logo}
-                        alt={`${certification.issuer} logo`}
-                        width={56}
-                        height={56}
-                        className="max-h-10 w-auto object-contain"
-                      />
-                    )}
-                  </div>
-
-                  <h3 className="mt-4 text-sm font-medium leading-snug">
-                    {certification.title}
-                  </h3>
-
-                  <p className="micro mt-auto pt-4">{certification.issuer}</p>
-                </Link>
+                  certification={certification}
+                  from="all"
+                />
               ))}
             </div>
           </section>
