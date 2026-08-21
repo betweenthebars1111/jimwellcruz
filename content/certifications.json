@@ -87,7 +87,7 @@
   },
   {
     "slug": "aws-machine-learning-foundations",
-    "title": "Machine Learning Foundations",
+    "title": "AWS Educate - Machine Learning Foundations",
     "issuer": "Amazon Web Services Training and Certification",
     "issuerShort": "Amazon Web Services",
     "category": "AI & Machine Learning",
@@ -102,9 +102,10 @@
     ],
     "summary": "Foundations of machine learning, including core concepts, terminology, workflows, and practical applications.",
     "body": [
-      "Introduces fundamental machine learning concepts, terminology, workflows, and practical applications, providing a foundation for understanding how machine learning systems are developed and used. Completed through AWS Training and Certification in 2026."
+      "Introduces fundamental machine learning concepts, terminology, workflows, and practical applications, providing a foundation for understanding how machine learning systems are developed and used. Earned through AWS Educate in 2026."
     ],
-    "logo": "/images/certs/aws.png"
+    "logo": "/images/certs/aws-machine-learning-foundations.png",
+    "logoBadge": true
   },
   {
     "slug": "aws-fundamentals-of-generative-ai",
