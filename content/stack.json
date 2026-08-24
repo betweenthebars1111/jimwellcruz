@@ -15,29 +15,23 @@
       "name": "Frameworks & Libraries",
       "items": [
         { "name": "React" },
-        { "name": "Django" },
         { "name": "Node.js" },
-        { "name": "PyTorch" },
         { "name": "Bootstrap" }
       ]
     },
     {
       "name": "Automation & AI",
       "items": [
-        { "name": "LLM API Integration" },
         { "name": "N8N" },
-        { "name": "AI Automation" },
-        { "name": "Google Gemini AI" }
+        { "name": "LLM API Integration" },
+        { "name": "AI Automation" }
       ]
     },
     {
       "name": "Cloud & DevOps",
       "items": [
         { "name": "AWS" },
-        { "name": "Docker" },
-        { "name": "Terraform" },
-        { "name": "Ansible" },
-        { "name": "NGINX" }
+        { "name": "Docker" }
       ]
     },
     {
