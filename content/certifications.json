@@ -31,7 +31,7 @@
     "category": "Cloud & DevOps",
     "date": "2026",
     "credentialId": "",
-    "url": "",
+    "url": "https://drive.google.com/file/d/19BKz4-qDo4-iFxk0hUSLtCEYUkNoFg2C/view?usp=sharing",
     "tags": [
       "AWS Cloud",
       "AWS Core Services",
@@ -40,7 +40,7 @@
     ],
     "summary": "Foundational AWS cloud training covering core services, security, architecture, pricing, and cloud concepts.",
     "body": [
-      "Covers the fundamental concepts of AWS Cloud, including core services, security, architecture, pricing, and support. Completed through AWS Training and Certification in 2026."
+      "Covers the fundamental concepts of AWS Cloud, including core services, security, architecture, pricing, and support. Completed through AWS Training and Certification in August 2026."
     ],
     "logo": "/images/certs/aws.png"
   },
