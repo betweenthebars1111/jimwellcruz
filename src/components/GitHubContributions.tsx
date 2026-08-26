@@ -131,10 +131,6 @@ export default async function GitHubContributions() {
           {total.toLocaleString()} contributions in the last year
         </p>
       )}
-
-      <p className="mt-2 text-[13px] italic text-gray-500">
-        i promise i&apos;m not lazy, just lazy with pushing. :)
-      </p>
     </div>
   );
 }
